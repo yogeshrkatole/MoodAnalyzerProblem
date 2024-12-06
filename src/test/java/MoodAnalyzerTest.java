@@ -13,10 +13,11 @@ public class MoodAnalyzerTest {
 	    }
 
 	    @Test
-	    public void givenMsg_whenSad_ShouldReturn_Happy(){
+	    public void givenMsg_whenHappy_ShouldReturn_Happy(){
 	        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("happy mood");
 	        Assert.assertEquals("HAPPY",moodAnalyzer.moodAnalyze("happy mood"));
 	    }
+	    
 	    @Test
 	    public void givenMsgInParameter_whenSad_ShouldReturn_Sad(){
 	        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Sad Mood"); 
@@ -28,6 +29,11 @@ public class MoodAnalyzerTest {
 			MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in any Mood");
 			Assert.assertEquals("HAPPY", moodAnalyzer.moodAnalyze("I am in any Mood"));
 		}
+		@Test
+	    public void givenMsgInParameter_whenNull_ShouldReturn_Happy(){
+	        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
+	        Assert.assertEquals("HAPPY",moodAnalyzer.moodAnalyze(null));
+	    }
 	    @Test
 	    public void givenMsgNotInParameter_whenSad_ShouldReturn_Sad(){
 	        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in Sad Mood"); 
@@ -36,6 +42,11 @@ public class MoodAnalyzerTest {
 	    @Test
 	    public void givenMsgNotInParameter_whenNotSad_ShouldReturn_Happy(){
 	        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in any Mood"); 
+	        Assert.assertEquals("HAPPY",moodAnalyzer.moodAnalyze());
+	    }
+	    @Test
+	    public void givenMsgNotInParameter_whenNull_ShouldReturn_Happy(){
+	        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
 	        Assert.assertEquals("HAPPY",moodAnalyzer.moodAnalyze());
 	    }
 }
